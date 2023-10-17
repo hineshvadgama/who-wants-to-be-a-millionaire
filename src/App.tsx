@@ -1,7 +1,7 @@
-import QuestionAnswer from './organisms/QuestionAnswer/QuestionAnswer.component';
+import IntroModal from './organisms/IntroModal/IntroModal.component';
 
 export default function App() {
   return (
-    <QuestionAnswer />
+    <IntroModal />
   );
 }

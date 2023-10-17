@@ -1,12 +1,16 @@
 import { Typography } from '@mui/material';
 
-export default function Answer() {
+type AnswerProps = {
+  answerText: string;
+};
+
+export default function Answer({ answerText }: AnswerProps) {
   return (
     <Typography
       variant="subtitle1"
       component="p"
     >
-      answer component
+      { answerText }
     </Typography>
   );
 }

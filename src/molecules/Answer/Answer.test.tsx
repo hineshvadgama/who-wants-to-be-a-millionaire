@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import Answer from './Answer.component';
 
-describe('answer', () => {
+describe('Answer', () => {
   test('displays text', () => {
-    const text = 'answer component';
-    render(<Answer />);
-    const textElement: HTMLParagraphElement = screen.getByText(text);
-    expect(textElement.innerHTML).toEqual(text);
+    const answerText = 'test answer';
+    render(<Answer answerText={answerText} />);
+    const textElement: HTMLParagraphElement = screen.getByText(answerText);
+    expect(textElement.innerHTML).toEqual(answerText);
   });
 });

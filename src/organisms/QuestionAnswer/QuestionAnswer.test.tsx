@@ -2,17 +2,24 @@ import { render, screen } from '@testing-library/react';
 import QuestionAnswer from './QuestionAnswer.component';
 
 describe('question-answer', () => {
-  test('displays question text', () => {
-    const questionText = 'question component';
+  beforeEach(() => {
     render(<QuestionAnswer />);
+  });
+
+  test('displays question text', () => {
+    const questionText = 'Test question';
     const textElement: HTMLParagraphElement = screen.getByText(questionText);
-    expect(textElement.innerHTML).toEqual(questionText);
+    expect(textElement).toBeInTheDocument();
   });
 
   test('displays answer text', () => {
-    const answerText = 'answer component';
-    render(<QuestionAnswer />);
-    const textElements: HTMLParagraphElement[] = screen.getAllByText(answerText);
-    expect(textElements.every((val) => val.innerHTML === answerText)).toBeTruthy();
+    const answer1: HTMLParagraphElement = screen.getByText('Answer 1');
+    const answer2: HTMLParagraphElement = screen.getByText('Answer 2');
+    const answer3: HTMLParagraphElement = screen.getByText('Answer 3');
+    const answer4: HTMLParagraphElement = screen.getByText('Answer 4');
+    expect(answer1).toBeInTheDocument();
+    expect(answer2).toBeInTheDocument();
+    expect(answer3).toBeInTheDocument();
+    expect(answer4).toBeInTheDocument();
   });
 });
