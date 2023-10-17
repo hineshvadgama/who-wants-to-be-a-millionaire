@@ -1,7 +1,7 @@
-import Question from './molecules/question/question.component';
+import QuestionAnswer from './organisms/QuestionAnswer/QuestionAnswer.component';
 
 export default function App() {
   return (
-    <Question />
+    <QuestionAnswer />
   );
 }
