@@ -3,7 +3,17 @@ import QuestionAnswer from './QuestionAnswer.component';
 
 describe('question-answer', () => {
   beforeEach(() => {
-    render(<QuestionAnswer />);
+    render(
+      <QuestionAnswer
+        question="Test question"
+        answers={[
+          { answer: 'Answer 1', correct: true },
+          { answer: 'Answer 2', correct: false },
+          { answer: 'Answer 3', correct: false },
+          { answer: 'Answer 4', correct: false },
+        ]}
+      />,
+    );
   });
 
   test('displays question text', () => {
