@@ -4,7 +4,7 @@ import MoneyLadder from './organisms/MoneyLadder/MoneyLadder';
 import Game from './templates/Game/Game.component';
 
 export default function App() {
-  const [showMoneyLadder] = useState(false);
+  const [showMoneyLadder] = useState(true);
   return (
     <>
       <IntroModal />

@@ -8,8 +8,8 @@ describe('Lifeline', () => {
     expect(renderedIcon).toBeVisible();
   });
 
-  test('displays correct 5050 icon', () => {
-    render(<Lifeline type="5050" />);
+  test('displays correct fiftyfifty icon', () => {
+    render(<Lifeline type="fiftyfifty" />);
     const renderedIcon: HTMLElement = screen.getByTestId('LooksTwoIcon');
     expect(renderedIcon).toBeVisible();
   });

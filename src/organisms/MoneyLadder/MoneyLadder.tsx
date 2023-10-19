@@ -6,7 +6,7 @@ export default function MoneyLadder() {
   return (
     <Box>
       <Box>
-        <Lifeline type="5050" />
+        <Lifeline type="fiftyfifty" />
         <Lifeline type="flip" />
         <Lifeline type="audience" />
       </Box>
