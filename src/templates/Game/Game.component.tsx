@@ -2,10 +2,11 @@ import QuestionAnswer from '../../organisms/QuestionAnswer/QuestionAnswer.compon
 import questions from '../../assets/data';
 
 export default function Game() {
+  const gameRound = 0;
   return (
     <QuestionAnswer
-      question={questions[0].question}
-      answers={questions[0].answers}
+      question={questions[gameRound].question}
+      answers={questions[gameRound].answers}
     />
   );
 }

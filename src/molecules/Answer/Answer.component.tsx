@@ -1,16 +1,17 @@
-import { Typography } from '@mui/material';
+import { Button } from '@mui/material';
 
 type AnswerProps = {
   answerText: string;
+  customClickEvent: () => void;
 };
 
-export default function Answer({ answerText }: AnswerProps) {
+export default function Answer({ answerText, customClickEvent }: AnswerProps) {
   return (
-    <Typography
-      variant="subtitle1"
-      component="p"
+    <Button
+      variant="text"
+      onClick={customClickEvent}
     >
       { answerText }
-    </Typography>
+    </Button>
   );
 }

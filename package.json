@@ -61,7 +61,9 @@
       "src/**/*.{ts,tsx}",
       "!src/index.tsx",
       "!src/react-app-env.d.ts",
-      "!src/reportWebVitals.ts"
+      "!src/reportWebVitals.ts",
+      "!src/assets/data.ts",
+      "!src/types.ts"
     ]
   }
 }

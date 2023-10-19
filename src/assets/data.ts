@@ -3,11 +3,11 @@ type QuestionAnswers = {
   answers: { answer: string, correct: boolean }[];
 };
 
-const questions: QuestionAnswers[] = [
+export default <QuestionAnswers[]>[
   {
     question: 'Who won the 2008 Formula 1 Championship',
     answers: [
-      { answer: 'Lewis Hamilton', correct: false },
+      { answer: 'Lewis Hamilton', correct: true },
       { answer: 'Michael Schumacher', correct: false },
       { answer: 'Damon Hill', correct: false },
       { answer: 'Carlos Sainz', correct: false },
@@ -32,5 +32,3 @@ const questions: QuestionAnswers[] = [
     ],
   },
 ];
-
-export default questions;
