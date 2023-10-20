@@ -31,4 +31,31 @@ export default <QuestionAnswers[]>[
       { answer: 'Mangos', correct: false },
     ],
   },
+  {
+    question: 'Which of the following is the chemical formula for water?',
+    answers: [
+      { answer: 'H2O', correct: true },
+      { answer: 'CO2', correct: false },
+      { answer: 'CO', correct: false },
+      { answer: 'H2SO4', correct: false },
+    ],
+  },
+];
+
+export const moneyLadderValues: number[] = [
+  100,
+  200,
+  300,
+  500,
+  1000,
+  2000,
+  4000,
+  8000,
+  16000,
+  32000,
+  64000,
+  128000,
+  250000,
+  500000,
+  1000000,
 ];

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import IntroModal from './organisms/IntroModal/IntroModal.component';
+import IntroModal from './molecules/IntroModal/IntroModal.component';
 import MoneyLadder from './organisms/MoneyLadder/MoneyLadder.compoent';
 import Game from './templates/Game/Game.component';
+import { moneyLadderValues } from './assets/data';
 
 export default function App() {
   const [showMoneyLadder] = useState(false);
@@ -13,7 +14,7 @@ export default function App() {
         && (
         <MoneyLadder
           currencySymbol="£"
-          values={[100, 200, 300, 1000, 100, 500]}
+          values={moneyLadderValues}
         />
         )
       }

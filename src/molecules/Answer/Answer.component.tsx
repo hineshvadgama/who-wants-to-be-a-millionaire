@@ -8,8 +8,9 @@ type AnswerProps = {
 export default function Answer({ answerText, customClickEvent }: AnswerProps) {
   return (
     <Button
-      variant="text"
+      variant="contained"
       onClick={customClickEvent}
+      sx={{ m: 2 }}
     >
       { answerText }
     </Button>
