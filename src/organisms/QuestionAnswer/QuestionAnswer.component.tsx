@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Box, Container } from '@mui/material';
 import Question from '../../molecules/Question/Question.component';
 import Answer from '../../molecules/Answer/Answer.component';
 import FinalAnswerModal from '../../molecules/FinalAnswerModal/FinalAnswerModal.component';
 import { TAnswer } from '../../types';
+import { RoundDispatchContext } from '../../context/gameRound/gameRoundContex';
 
 type QuestionAnswerProps = {
   question: string;
@@ -13,6 +14,7 @@ type QuestionAnswerProps = {
 export default function QuestionAnswer(
   { question, answers }: QuestionAnswerProps,
 ) {
+  const dispatch = useContext(RoundDispatchContext);
   const [selectedAnswer, setSelectedAnswer] = useState<TAnswer>();
   const [showFinalAnswerModal, setShowFinalAnswerModal] = useState<boolean>(false);
 
@@ -21,12 +23,15 @@ export default function QuestionAnswer(
     setShowFinalAnswerModal(true);
   };
 
-  const handleClose = (finalAnswer: boolean): void => {
+  const handleClose = (isFinalAnswer: boolean): void => {
     setShowFinalAnswerModal(false);
+    if (!isFinalAnswer) return;
+
     if (selectedAnswer?.correct) {
-      // update round with reducer
+      if (dispatch) dispatch({ type: 'increase' });
+    } else {
+      // Handle Incorrect Answer
     }
-    console.log(finalAnswer);
   };
 
   return (

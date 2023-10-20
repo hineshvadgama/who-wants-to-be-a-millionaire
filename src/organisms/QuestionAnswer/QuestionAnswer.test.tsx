@@ -1,18 +1,25 @@
+import React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import QuestionAnswer from './QuestionAnswer.component';
+import { RoundContext, RoundDispatchContext } from '../../context/gameRound/gameRoundContex';
 
 describe('question-answer', () => {
+  const mockDispatch = jest.fn();
   beforeEach(() => {
     render(
-      <QuestionAnswer
-        question="Test question"
-        answers={[
-          { answer: 'Answer 1', correct: true },
-          { answer: 'Answer 2', correct: false },
-          { answer: 'Answer 3', correct: false },
-          { answer: 'Answer 4', correct: false },
-        ]}
-      />,
+      <RoundContext.Provider value={0}>
+        <RoundDispatchContext.Provider value={mockDispatch}>
+          <QuestionAnswer
+            question="Test question"
+            answers={[
+              { answer: 'Answer 1', correct: true },
+              { answer: 'Answer 2', correct: false },
+              { answer: 'Answer 3', correct: false },
+              { answer: 'Answer 4', correct: false },
+            ]}
+          />
+        </RoundDispatchContext.Provider>
+      </RoundContext.Provider>,
     );
   });
 
@@ -58,5 +65,17 @@ describe('question-answer', () => {
     });
     const finalAnswerModalHeading: HTMLElement | null = screen.queryByText('Final Answer?');
     expect(finalAnswerModalHeading).toBeNull();
+  });
+
+  test('dispatches increase action on correct answer', () => {
+    const answer1: HTMLElement = screen.getByText('Answer 1');
+    act(() => {
+      answer1.click();
+    });
+    const yesButton: HTMLElement = screen.getByText('Yes');
+    act(() => {
+      yesButton.click();
+    });
+    expect(mockDispatch).toHaveBeenCalledWith({ type: 'increase' });
   });
 });
