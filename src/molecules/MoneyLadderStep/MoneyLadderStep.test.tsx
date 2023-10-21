@@ -3,7 +3,7 @@ import MoneyLadderStep from './MoneyLadderStep.component';
 
 describe('MoneyLadderStep', () => {
   test('renders correctly', () => {
-    render(<MoneyLadderStep currencySymbol="£" value={100} />);
+    render(<MoneyLadderStep currencySymbol="£" value={100} highlight={false} />);
     const textElement: HTMLElement = screen.getByText('£100');
     expect(textElement).toBeVisible();
   });

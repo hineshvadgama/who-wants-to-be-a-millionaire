@@ -6,7 +6,7 @@ import questions, { moneyLadderValues } from '../../assets/data';
 import { RoundContext, RoundDispatchContext } from '../../context/gameRound/gameRoundContex';
 import roundReducer from '../../context/gameRound/gameRoundReducer';
 
-const initialRound: number = 0;
+const initialRound: number = moneyLadderValues.length - 1;
 
 export default function Game() {
   const [round, dispatch] = useReducer(roundReducer, initialRound);

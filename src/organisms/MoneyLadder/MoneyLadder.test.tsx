@@ -17,9 +17,9 @@ describe('MoneyLadder', () => {
   test('renders MoneyLadderSteps', () => {
     const moneyLadderSteps: HTMLElement[] = screen.getAllByText('£', { exact: false });
     expect(moneyLadderSteps.length).toEqual(4);
-    expect(moneyLadderSteps[0].innerHTML).toEqual('£50');
-    expect(moneyLadderSteps[1].innerHTML).toEqual('£100');
-    expect(moneyLadderSteps[2].innerHTML).toEqual('£300');
-    expect(moneyLadderSteps[3].innerHTML).toEqual('£1000');
+    expect(moneyLadderSteps[0].innerHTML).toEqual('£1000');
+    expect(moneyLadderSteps[1].innerHTML).toEqual('£300');
+    expect(moneyLadderSteps[2].innerHTML).toEqual('£100');
+    expect(moneyLadderSteps[3].innerHTML).toEqual('£50');
   });
 });
