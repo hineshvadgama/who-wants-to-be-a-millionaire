@@ -7,7 +7,7 @@ describe('Game', () => {
 
   test('displays QuestionAnswer component', () => {
     render(<Game />);
-    const question: HTMLElement = screen.getByText('Which of the following does not grow on a tree');
+    const question: HTMLElement = screen.getByText('Who won the 2008 Formula 1 Championship');
     expect(question).toBeVisible();
   });
 

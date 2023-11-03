@@ -1,20 +1,26 @@
-import { useContext } from 'react';
-import { Box } from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import Box from '@mui/material/Box';
 import MoneyLadderStep from '../../molecules/MoneyLadderStep/MoneyLadderStep.component';
 import Lifeline from '../../molecules/Lifeline/Lifeline.component';
 import { RoundContext } from '../../context/gameRound/gameRoundContex';
 
 type MoneyLadderProps = {
   currencySymbol: string;
-  values: number[]
+  steps: number[]
 };
 
-export default function MoneyLadder({ currencySymbol, values }: MoneyLadderProps) {
-  const round = useContext(RoundContext);
+export default function MoneyLadder({ currencySymbol, steps }: MoneyLadderProps) {
+  steps.sort((a: number, b: number): number => b - a);
 
-  values.sort((a: number, b: number): number => b - a);
-  const uniqueValues = values.filter((value: number, index: number) => values
+  const uniqueSteps = steps.filter((value: number, index: number) => steps
     .indexOf(value) === index);
+
+  const round = useContext(RoundContext);
+  const [stepTracker, setStepTracker] = useState<number>(uniqueSteps.length);
+
+  useEffect(() => {
+    setStepTracker(stepTracker - 1);
+  }, [round]);
 
   return (
     <Box>
@@ -23,12 +29,12 @@ export default function MoneyLadder({ currencySymbol, values }: MoneyLadderProps
         <Lifeline type="flip" />
         <Lifeline type="audience" />
       </Box>
-      {uniqueValues.map((value, index) => (
+      {uniqueSteps.map((value, index) => (
         <MoneyLadderStep
           key={value}
           currencySymbol={currencySymbol}
           value={value}
-          highlight={index === round}
+          highlight={index === stepTracker}
         />
       ))}
     </Box>

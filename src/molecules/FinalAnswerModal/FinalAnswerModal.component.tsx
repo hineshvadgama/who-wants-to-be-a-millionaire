@@ -1,7 +1,7 @@
 import {
   Box,
   Button,
-  Modal,
+  Dialog,
   Typography,
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
@@ -19,7 +19,7 @@ export default function FinalAnswerModal(
   }: FinalAnswerModalProps,
 ) {
   return (
-    <Modal open={isOpen}>
+    <Dialog open={isOpen}>
       <Box sx={{ p: 4, textAlign: 'center', backgroundColor: grey[50] }}>
         <Typography variant="h3">Final Answer?</Typography>
         <Typography variant="subtitle1">{`Q: ${question}`}</Typography>
@@ -27,6 +27,6 @@ export default function FinalAnswerModal(
         <Button sx={{ m: 2 }} variant="contained" onClick={() => handleClose(false)}>No</Button>
         <Button sx={{ m: 2 }} variant="contained" onClick={() => handleClose(true)}>Yes</Button>
       </Box>
-    </Modal>
+    </Dialog>
   );
 }

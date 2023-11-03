@@ -14,7 +14,7 @@ type QuestionAnswerProps = {
 export default function QuestionAnswer(
   { question, answers }: QuestionAnswerProps,
 ) {
-  const dispatch = useContext(RoundDispatchContext);
+  const roundDispatch = useContext(RoundDispatchContext);
   const [selectedAnswer, setSelectedAnswer] = useState<TAnswer>();
   const [showFinalAnswerModal, setShowFinalAnswerModal] = useState<boolean>(false);
 
@@ -23,12 +23,12 @@ export default function QuestionAnswer(
     setShowFinalAnswerModal(true);
   };
 
-  const handleClose = (isFinalAnswer: boolean): void => {
+  const handleFinalAnswerModalClose = (isFinalAnswer: boolean): void => {
     setShowFinalAnswerModal(false);
     if (!isFinalAnswer) return;
 
     if (selectedAnswer?.correct) {
-      if (dispatch) dispatch({ type: 'increase' });
+      if (roundDispatch) roundDispatch({ type: 'increase' });
     } else {
       // Handle Incorrect Answer
     }
@@ -51,7 +51,7 @@ export default function QuestionAnswer(
         question={question}
         selectedAnswer={selectedAnswer?.answer}
         isOpen={showFinalAnswerModal}
-        handleClose={handleClose}
+        handleClose={handleFinalAnswerModalClose}
       />
     </Container>
   );

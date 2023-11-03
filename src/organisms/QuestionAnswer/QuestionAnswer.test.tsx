@@ -1,4 +1,3 @@
-import React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import QuestionAnswer from './QuestionAnswer.component';
 import { RoundContext, RoundDispatchContext } from '../../context/gameRound/gameRoundContex';
@@ -46,7 +45,7 @@ describe('question-answer', () => {
   });
 
   test('displays FinalAnswerModal', () => {
-    const answer1: HTMLElement = screen.getByText('Answer 1');
+    const answer1: HTMLButtonElement = screen.getByText('Answer 1');
     act(() => {
       answer1.click();
     });
@@ -55,24 +54,24 @@ describe('question-answer', () => {
   });
 
   test('closes FinalAnswerModal', () => {
-    const answer1: HTMLElement = screen.getByText('Answer 1');
+    const answer1: HTMLButtonElement = screen.getByText('Answer 1');
     act(() => {
       answer1.click();
     });
-    const noButton: HTMLElement = screen.getByText('No');
+    const noButton: HTMLButtonElement = screen.getByText('No');
     act(() => {
       noButton.click();
     });
-    const finalAnswerModalHeading: HTMLElement | null = screen.queryByText('Final Answer?');
-    expect(finalAnswerModalHeading).toBeNull();
+    const finalAnswerModalHeading: HTMLHeadingElement | null = screen.queryByText('Final Answer?');
+    expect(finalAnswerModalHeading).not.toBeVisible();
   });
 
-  test('dispatches increase action on correct answer', () => {
-    const answer1: HTMLElement = screen.getByText('Answer 1');
+  test('dispatches round increase action on correct answer', () => {
+    const answer1: HTMLButtonElement = screen.getByText('Answer 1');
     act(() => {
       answer1.click();
     });
-    const yesButton: HTMLElement = screen.getByText('Yes');
+    const yesButton: HTMLButtonElement = screen.getByText('Yes');
     act(() => {
       yesButton.click();
     });

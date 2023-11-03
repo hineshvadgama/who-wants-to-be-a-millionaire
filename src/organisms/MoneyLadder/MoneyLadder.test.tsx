@@ -3,7 +3,7 @@ import MoneyLadder from './MoneyLadder.compoent';
 
 describe('MoneyLadder', () => {
   beforeEach(() => {
-    render(<MoneyLadder currencySymbol="£" values={[100, 50, 300, 1000, 300]} />);
+    render(<MoneyLadder currencySymbol="£" steps={[100, 50, 300, 1000, 300]} />);
   });
   test('displays lifeline icons', () => {
     const fiftyfiftyIcon: HTMLElement = screen.getByTestId('LooksTwoIcon');

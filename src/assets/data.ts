@@ -16,8 +16,8 @@ export default <QuestionAnswers[]>[
   {
     question: "Which British band's debut album was called Please Please Me",
     answers: [
-      { answer: 'The Rolling Stones', correct: false },
       { answer: 'The Beatles', correct: true },
+      { answer: 'The Rolling Stones', correct: false },
       { answer: 'Led Zeppelin', correct: false },
       { answer: 'The Who', correct: false },
     ],
@@ -52,8 +52,8 @@ export default <QuestionAnswers[]>[
   {
     question: "Which British band's debut album was called Please Please Me",
     answers: [
-      { answer: 'The Rolling Stones', correct: false },
       { answer: 'The Beatles', correct: true },
+      { answer: 'The Rolling Stones', correct: false },
       { answer: 'Led Zeppelin', correct: false },
       { answer: 'The Who', correct: false },
     ],
@@ -88,8 +88,8 @@ export default <QuestionAnswers[]>[
   {
     question: "Which British band's debut album was called Please Please Me",
     answers: [
-      { answer: 'The Rolling Stones', correct: false },
       { answer: 'The Beatles', correct: true },
+      { answer: 'The Rolling Stones', correct: false },
       { answer: 'Led Zeppelin', correct: false },
       { answer: 'The Who', correct: false },
     ],
@@ -124,8 +124,8 @@ export default <QuestionAnswers[]>[
   {
     question: "Which British band's debut album was called Please Please Me",
     answers: [
-      { answer: 'The Rolling Stones', correct: false },
       { answer: 'The Beatles', correct: true },
+      { answer: 'The Rolling Stones', correct: false },
       { answer: 'Led Zeppelin', correct: false },
       { answer: 'The Who', correct: false },
     ],
