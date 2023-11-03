@@ -20,7 +20,7 @@ describe('Game', () => {
     expect(icon).toBeVisible();
   });
 
-  test('do not display MoneyLadder if state is false', () => {
+  test('does not display MoneyLadder if state is false', () => {
     jest
       .spyOn(React, 'useState')
       .mockImplementation(() => [false, setState]);
@@ -28,4 +28,6 @@ describe('Game', () => {
     const icon: HTMLElement | null = screen.queryByTestId('LooksTwoIcon');
     expect(icon).toBeNull();
   });
+
+  // Test displays WinnerModal
 });

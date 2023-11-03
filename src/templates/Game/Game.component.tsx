@@ -17,8 +17,8 @@ export default function Game() {
   const [showWinnerModal, setShowWinnerModal] = useState<boolean>(false);
 
   useEffect(() => {
-    if (round < 0) {
-      // setShowWinnerModal(true);
+    if (round === questions.length) {
+      setShowWinnerModal(true);
     }
   }, [round]);
 
