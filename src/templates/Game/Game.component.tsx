@@ -29,7 +29,7 @@ export default function Game({ setIntroModalOpen }: TGameProps) {
   const resetGame = (): void => {
     setShowWinnerModal(false);
     // reset rounds back to start
-    dispatch({ type: 'reset', noOfRounds: questions.length });
+    dispatch({ type: 'reset' });
     setIntroModalOpen(true);
   };
 

@@ -1,12 +1,9 @@
-export default function roundReducer(round: number, action: {
-  type: string, noOfRounds?: number
-}): number {
+export default function roundReducer(round: number, action: { type: string }): number {
   switch (action.type) {
     case 'increase':
       return round + 1;
     case 'reset':
-      if (action.noOfRounds) return action.noOfRounds;
-      throw Error("Missing argument 'noOFRounds'");
+      return 0;
     default: {
       throw Error('No action type provided for roundReducer');
     }

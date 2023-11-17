@@ -20,6 +20,7 @@ export default function MoneyLadder({ currencySymbol, steps }: MoneyLadderProps)
 
   useEffect(() => {
     setStepTracker(stepTracker - 1);
+    if (stepTracker === 0) setStepTracker(uniqueSteps.length);
   }, [round]);
 
   return (

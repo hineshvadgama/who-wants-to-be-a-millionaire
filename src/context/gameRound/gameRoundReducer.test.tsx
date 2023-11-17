@@ -7,13 +7,8 @@ describe('gameRoundReducer', () => {
   });
 
   test('reset returns number of rounds', () => {
-    const numberOfRounds = roundReducer(5, { noOfRounds: 5, type: 'reset' });
-    expect(numberOfRounds).toStrictEqual(5);
-  });
-
-  test('reset throws error if missing parameter', () => {
-    const numberOfRounds = () => roundReducer(5, { type: 'reset' });
-    expect(numberOfRounds).toThrow(Error);
+    const numberOfRounds = roundReducer(5, { type: 'reset' });
+    expect(numberOfRounds).toStrictEqual(0);
   });
 
   test('throws error if no action match', () => {
