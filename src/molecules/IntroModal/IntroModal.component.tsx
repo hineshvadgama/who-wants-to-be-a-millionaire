@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Box,
   Button,
@@ -8,8 +7,12 @@ import {
 import { grey } from '@mui/material/colors';
 import logo from '../../assets/img/who-wants-to-be-a-millionaire-logo.png';
 
-export default function IntroModal() {
-  const [isOpen, setIsOpen] = useState(true);
+type TIntroModalProps = {
+  isOpen: boolean,
+  setIsOpen: (setOpen: boolean) => void
+};
+
+export default function IntroModal({ isOpen, setIsOpen }: TIntroModalProps) {
   return (
     <Modal open={isOpen}>
       <Box sx={{ p: 2, textAlign: 'center', backgroundColor: grey[50] }}>

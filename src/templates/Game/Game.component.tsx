@@ -11,7 +11,11 @@ import { RoundContext, RoundDispatchContext } from '../../context/gameRound/game
 import roundReducer from '../../context/gameRound/gameRoundReducer';
 import WinnerModal from '../../molecules/WinnerModal/WinnerModal';
 
-export default function Game() {
+type TGameProps = {
+  setIntroModalOpen: (isOpen: boolean) => void
+};
+
+export default function Game({ setIntroModalOpen }: TGameProps) {
   const [round, dispatch] = useReducer(roundReducer, 0);
   const [showMoneyLadder] = useState<boolean>(true);
   const [showWinnerModal, setShowWinnerModal] = useState<boolean>(false);
@@ -22,8 +26,15 @@ export default function Game() {
     }
   }, [round]);
 
-  const handleWinnerModalClose = (): void => {
+  const resetGame = (): void => {
     setShowWinnerModal(false);
+    // reset rounds back to start
+    dispatch({ type: 'reset', noOfRounds: questions.length });
+    setIntroModalOpen(true);
+  };
+
+  const handleWinnerModalClose = (): void => {
+    resetGame();
   };
 
   return (

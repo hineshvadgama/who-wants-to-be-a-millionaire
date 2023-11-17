@@ -2,8 +2,9 @@ import { act, render, screen } from '@testing-library/react';
 import IntroModal from './IntroModal.component';
 
 describe('IntroModal', () => {
+  const setIntroModalOpen = jest.fn();
   beforeEach(() => {
-    render(<IntroModal />);
+    render(<IntroModal isOpen setIsOpen={setIntroModalOpen} />);
   });
 
   test('modal is displayed on first render', () => {
@@ -30,13 +31,12 @@ describe('IntroModal', () => {
     expect(buttonElement.tagName).toEqual('BUTTON');
   });
 
-  test('button closes modal', () => {
-    const modalElement: HTMLDivElement = screen.getByRole('presentation');
+  test('button calls close handler function', () => {
     const buttonText = 'Play';
     const buttonElement: HTMLButtonElement = screen.getByText(buttonText);
     act(() => {
       buttonElement.click();
     });
-    expect(modalElement).not.toBeVisible();
+    expect(setIntroModalOpen).toHaveBeenCalledWith(false);
   });
 });

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Container } from '@mui/material';
 import Question from '../../molecules/Question/Question.component';
 import Answer from '../../molecules/Answer/Answer.component';
@@ -14,7 +14,7 @@ type QuestionAnswerProps = {
 export default function QuestionAnswer(
   { question, answers }: QuestionAnswerProps,
 ) {
-  const roundDispatch = useContext(RoundDispatchContext);
+  const roundDispatch = useContext<React.Dispatch<{ type: string }>>(RoundDispatchContext);
   const [selectedAnswer, setSelectedAnswer] = useState<TAnswer>();
   const [showFinalAnswerModal, setShowFinalAnswerModal] = useState<boolean>(false);
 
@@ -27,10 +27,14 @@ export default function QuestionAnswer(
     setShowFinalAnswerModal(false);
     if (!isFinalAnswer) return;
 
-    if (selectedAnswer?.correct) {
-      if (roundDispatch) roundDispatch({ type: 'increase' });
+    if (selectedAnswer) {
+      if (selectedAnswer.correct) {
+        roundDispatch({ type: 'increase' });
+        // return;
+      }
+      // Handle incorrect answer
     } else {
-      // Handle Incorrect Answer
+      throw Error('Answer is not defined');
     }
   };
 
